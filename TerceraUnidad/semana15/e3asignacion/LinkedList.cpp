@@ -108,11 +108,13 @@ std::ostream& operator <<(std::ostream &salida1,const LinkedList& C){
      salida1 << "] ";
     return salida1;
 }
-void operator +(std::ostream &out,const LinkedList& B){
-    Node* actual_b = B.head;
-    while(actual_b)
+LinkedList operator +(const LinkedList& B){
+    LinkedList nuevalist {*this};
+    Node* actual_b= B.head;
+    while(actual_b )
     {
-        this->insert(actual_b->getValue());
+        nuevalist.insert(actual_b->getValue());
         actual_b = actual_b->getNext();
     }
+    return nuevalist;
 }
